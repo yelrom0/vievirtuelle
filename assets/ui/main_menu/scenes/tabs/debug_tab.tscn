@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://o15uql5ivhfp"]
+
+[node name="GeneralTabControl" type="Control"]
+custom_minimum_size = Vector2(250, 250)
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HeadingControl" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.25
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HeadingRTL" type="RichTextLabel" parent="HeadingControl"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.25
+anchor_right = 0.675
+anchor_bottom = 0.25
+offset_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[b]Debug[/b]"
+fit_content = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="MainControl" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PositionLabelsControl" type="Control" parent="MainControl"]
+layout_mode = 1
+anchor_right = 0.2
+anchor_bottom = 0.1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="YPosLocLabel" type="RichTextLabel" parent="MainControl/PositionLabelsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.275
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.04
+offset_right = -21.04
+offset_bottom = 0.849998
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "13.5"
+
+[node name="YPosHeaderLabel" type="RichTextLabel" parent="MainControl/PositionLabelsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.25
+anchor_right = 0.09
+anchor_bottom = 0.25
+offset_left = 3.0
+offset_right = 33.0
+offset_bottom = 33.85
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Y:"
+
+[node name="XPosLabelsControl" type="Control" parent="MainControl/PositionLabelsControl"]
+layout_mode = 1
+anchor_right = 0.5
+anchor_bottom = 0.005
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="XPosLocLabel" type="RichTextLabel" parent="MainControl/PositionLabelsControl/XPosLabelsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.45
+anchor_bottom = 0.45
+offset_left = 41.08
+offset_top = 2.0
+offset_right = 41.08
+offset_bottom = 2.85
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "22.5"
+
+[node name="XPosHeaderLabel" type="RichTextLabel" parent="MainControl/PositionLabelsControl/XPosLabelsControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.25
+offset_left = 23.04
+offset_right = 53.04
+offset_bottom = 33.85
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "X:"
