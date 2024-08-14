@@ -21,7 +21,7 @@ func save() -> void:
     ResourceSaver.save(self, PATH)
 
 static func load_preferences() -> UserPreferences:
-    var res: UserPreferences = load(PATH) as UserPreferences
+    var res := load(PATH) as UserPreferences
 
     if !res:
         res = UserPreferences.new()
