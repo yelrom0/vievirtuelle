@@ -1,0 +1,68 @@
+"""
+world_loader.gd
+
+Handles the dynamic loading of "worlds".
+Worlds are 3D models that represent the environment,
+with additional properties.
+These are each stored in their own folders in 
+the chosen base directory.
+
+
+"""
+
+@tool
+class_name WorldLoaderOld extends Resource
+
+@export var base_directory: String = "res://assets/worlds/data"
+
+# Contains Dictionaries in the format: {"name": "Name", "path": "res://path/to/world"}
+var environments: Array = []
+var names_arr: Array = []:
+    get:
+        var res: Array = []
+        for env in environments:
+            res.append(env["name"])
+        return res
+
+var paths: Array = []:
+    get:
+        var res: Array = []
+        for env in environments:
+            res.append(env["path"])
+        return res
+
+func _init() -> void:
+    var dir: DirAccess = DirAccess.open(base_directory)
+
+    if dir:
+        dir.list_dir_begin()
+        var file_name: String = dir.get_next()
+        var mapping := {}
+
+        while file_name != "":
+            if dir.current_is_dir():
+                
+                mapping = {
+                    "name": file_name.capitalize(),
+                    "path": base_directory + "/" + file_name,
+                }
+                environments.append(mapping)
+
+        if environments.is_empty():
+            _load_from_remote("No environments found in directory: " + base_directory)
+
+    else:
+        _load_from_remote("Could not open directory: " + base_directory)
+
+
+func _load_from_remote(msg: String = "") -> void:
+    """
+    Downloads default environments from remote.
+
+    Args:
+        msg (String): Optional message to print to console.
+    """
+
+    # TODO: Add remote asset downloading from remote.
+    if msg:
+        print(msg)
