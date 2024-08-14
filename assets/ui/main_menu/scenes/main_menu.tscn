@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://7lykxwp5lnow"]
+
+[ext_resource type="Script" path="res://assets/ui/main_menu/scripts/main_menu.gd" id="1_84kp7"]
+[ext_resource type="PackedScene" uid="uid://cgavlol62le0b" path="res://assets/ui/main_menu/scenes/tabs/general_tab.tscn" id="2_ido11"]
+
+[node name="MainMenu" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("1_84kp7")
+
+[node name="General" parent="." instance=ExtResource("2_ido11")]
+layout_mode = 2
+metadata/_tab_index = 0
