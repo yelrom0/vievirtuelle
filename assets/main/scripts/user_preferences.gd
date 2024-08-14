@@ -15,9 +15,6 @@ class_name UserPreferences extends Resource
 
 const PATH := "user://user_preferences.tres"
 
-# var AVAILABLE_WORLDS = WorldLoader.new().worlds
-
-# @export var current_environment: String = AVAILABLE_WORLDS[0]["name"]
 @export var user_height: float = 2.0
 
 func save() -> void:
