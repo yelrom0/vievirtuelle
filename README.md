@@ -14,7 +14,26 @@ That is:
 
 Once that is done, I will add more features to make it a more complete virtual life experience such as social, browser and (hopefully/possibly) app surfaces within the space where anyone in the space can see what you're doing and join in.
 
++syncing between devices (clipboard, files, notifications, taking calls etc.)
+
 I want to be able to work, play, and socialise in VR, and I want to be able to do it all in one place.
+
+## TODO
+
+[ ] Add the ability to grab + move menus
+[ ] Finish debug menu
+[ ] Custom icons, logos, images and assets for the project
+[ ] Add GStreamer to the project (see section below) with custom wrapper and Nodes for Godot
+[ ] Detection of audio channel amount + if more than two, split for handling of Godot's 2 channel limitation
+[ ] Add user preference for controller mappings
+[ ] Finish cleaning up environment (currently called worlds) loading
+[ ] Rename "world(s)" to "vie(s)". Vie being the French word for life.
+[ ] Create "move space". These will be used in certain vies (for example Cinemas) to allow for movement to other seats/areas without clipping through the environment.
+[ ] Adjust for holding menu or system button
+[ ] Quest 3 controller models
+[ ] Add passthrough environments
+[ ] Browser embedding as views further research
+[ ] Lighting for cinema vie
 
 ## Note for GStreamer Integration
 
