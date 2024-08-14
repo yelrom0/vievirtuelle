@@ -1,0 +1,53 @@
+[gd_resource type="OpenXRActionMap" load_steps=11 format=3 uid="uid://bsq55wm7pm643"]
+
+[sub_resource type="OpenXRAction" id="OpenXRAction_2jxy4"]
+resource_name = "trigger_press"
+localized_name = "Trigger Press - Typically the button on the back of the controller facing away from the user"
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="OpenXRAction_grjbg"]
+resource_name = "grip_pose"
+localized_name = "Grip Pose - Typically the button on the side of the controller"
+action_type = 3
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="OpenXRAction_wbnhn"]
+resource_name = "recenter_pose"
+localized_name = "Recenter Pose - To recenter the view to the headset, Using system button on right and menu button on left controller for now."
+action_type = 0
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="OpenXRAction_273kc"]
+resource_name = "aim_pose"
+localized_name = "Aim Pose - The tip of the controller, used for detecting where the controller is pointing"
+action_type = 3
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRActionSet" id="OpenXRActionSet_y3ksp"]
+resource_name = "cinema_viewing_action_set"
+localized_name = "Cinema viewing action set - when in a cinema/viewing environment"
+actions = [SubResource("OpenXRAction_2jxy4"), SubResource("OpenXRAction_grjbg"), SubResource("OpenXRAction_wbnhn"), SubResource("OpenXRAction_273kc")]
+
+[sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_f6ir2"]
+action = SubResource("OpenXRAction_grjbg")
+paths = PackedStringArray("/user/hand/left/input/grip/pose", "/user/hand/right/input/grip/pose")
+
+[sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_l30mg"]
+action = SubResource("OpenXRAction_2jxy4")
+paths = PackedStringArray("/user/hand/left/input/trigger/value", "/user/hand/right/input/trigger/value")
+
+[sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_47i66"]
+action = SubResource("OpenXRAction_wbnhn")
+paths = PackedStringArray("/user/hand/left/input/menu/click", "/user/hand/right/input/system/click")
+
+[sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_1a6yo"]
+action = SubResource("OpenXRAction_273kc")
+paths = PackedStringArray("/user/hand/left/input/aim/pose", "/user/hand/right/input/aim/pose")
+
+[sub_resource type="OpenXRInteractionProfile" id="OpenXRInteractionProfile_tr37b"]
+interaction_profile_path = "/interaction_profiles/meta/touch_controller_plus"
+bindings = [SubResource("OpenXRIPBinding_f6ir2"), SubResource("OpenXRIPBinding_l30mg"), SubResource("OpenXRIPBinding_47i66"), SubResource("OpenXRIPBinding_1a6yo")]
+
+[resource]
+action_sets = [SubResource("OpenXRActionSet_y3ksp")]
+interaction_profiles = [SubResource("OpenXRInteractionProfile_tr37b")]
