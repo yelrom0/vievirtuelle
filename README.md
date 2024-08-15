@@ -31,7 +31,8 @@ I want to be able to work, play, and socialise in VR, and I want to be able to d
 [ ] Create "move space". These will be used in certain vies (for example Cinemas) to allow for movement to other seats/areas without clipping through the environment.
 [ ] Adjust for holding menu or system button
 [ ] Quest 3 controller models
-[ ] Add passthrough environments
+[ ] Add passthrough and the ability to toggle easily. XRInterface, specifically
+swapping setting the environemt_blend_mode property to XR_ENV_BLEND_MODE_ALPHA_BLEND (passthrough) or XR_ENV_BLEND_MODE_OPAQUE for regular VR.
 [ ] Browser embedding as views further research
 [ ] Lighting for cinema vie
 
