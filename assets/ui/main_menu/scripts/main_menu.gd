@@ -4,13 +4,19 @@ main_menu.gd
 This script is attached to the main
 menu node in the main scene.
 
-For now all it does is add a debug tab
-but eventually it will be used to control
-other aspects of the main scene.
+Currently, this performs three functions:
+	- Adds a debug tab to the main menu (if in debug mode)
+	- Checks if the user has triggered the action to toggle
+	the visibility of the main menu, in which case it will do so.
+	- Checks if the user is triggering the action to move the main menu,
+	(with the initial action also pointing at the menu). In which case 
+	velocity will be added to the main menu node in the direction
+	of the controller, higher velocity the further the controller is from
+	the menu, then decelarate when caught up or the controller is no longer
+	triggering the action.
 """
 class_name MainMenu extends TabContainer
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if OS.is_debug_build():
 		_add_debug_tab()

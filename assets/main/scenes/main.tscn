@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfau1wr6djxob"]
+[gd_scene load_steps=10 format=3 uid="uid://bfau1wr6djxob"]
 
 [ext_resource type="Script" path="res://assets/main/scripts/main.gd" id="1_5ctoj"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/hand.gd" id="2_sf6rt"]
 [ext_resource type="PackedScene" uid="uid://bxl1ejsyhkq02" path="res://assets/worlds/data/cinema/model.gltf" id="3_8ecq4"]
+[ext_resource type="PackedScene" uid="uid://7lykxwp5lnow" path="res://assets/ui/main_menu/scenes/main_menu.tscn" id="4_7w4fc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g6avk"]
 radius = 0.05
@@ -69,6 +70,9 @@ skeleton = NodePath("../..")
 
 [node name="AnimationTree" type="AnimationTree" parent="XROrigin3D/Right/XRToolsHand"]
 tree_root = SubResource("AnimationRootNode_hf2ak")
+
+[node name="MainMenu" parent="XROrigin3D" instance=ExtResource("4_7w4fc")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n5lfr")
