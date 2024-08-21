@@ -1,4 +1,4 @@
-extends Node3D
+extends CharacterBody3D
 
 # focus_lost is when the user takes off the headset
 # or opens the system menu
