@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfau1wr6djxob"]
+[gd_scene load_steps=23 format=3 uid="uid://bfau1wr6djxob"]
 
 [ext_resource type="Script" path="res://assets/main/scripts/main.gd" id="1_5ctoj"]
-[ext_resource type="Script" path="res://assets/main/scenes/xr_camera_3d.gd" id="2_cg16h"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/hand.gd" id="2_sf6rt"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dl8yf7ipqotd1" path="res://addons/godot-xr-tools/hands/animations/left/hand_blend_tree.tres" id="3_6tgc7"]
 [ext_resource type="PackedScene" uid="uid://bxl1ejsyhkq02" path="res://assets/worlds/data/cinema/model.gltf" id="3_8ecq4"]
@@ -90,7 +89,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 4.
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 current = true
-script = ExtResource("2_cg16h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="XROrigin3D/XRCamera3D"]
 visible = false

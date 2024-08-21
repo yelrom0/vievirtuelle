@@ -19,6 +19,10 @@ var xr_is_focussed = false
 
 @onready var viewport: Viewport = get_viewport()
 @onready var environment: Environment = $WorldEnvironment.environment
+@onready var xr_camera: XRCamera3D = $XROrigin3D/XRCamera3D
+@onready var main_menu: MainMenu = $XROrigin3D/XRCamera3D/MainMenu
+@onready var left_hand: XRController3D = $XROrigin3D/Left
+@onready var right_hand: XRController3D = $XROrigin3D/Right
 
 func switch_to_ar() -> bool:
 	xr_interface = XRServer.primary_interface
@@ -77,10 +81,18 @@ func _ready():
 		xr_interface.session_focussed.connect(_on_openxr_focused_state)
 		xr_interface.session_stopping.connect(_on_openxr_stopping)
 		xr_interface.pose_recentered.connect(_on_openxr_pose_recentered)
+
+		# Connect the input events
+		left_hand.input_float_changed.connect(_input_float_change)
+		right_hand.input_float_changed.connect(_input_float_change)
 	else:
 		# We couldn't start OpenXR.
 		print("OpenXR not instantiated!")
 		get_tree().quit()
+
+func _input_float_change(name: String, value: float) -> void:
+	if name == "trigger_press" and value > 0.0:
+		main_menu.visible = !main_menu.visible
 
 # Handle OpenXR session ready
 func _on_openxr_session_begun() -> void:
